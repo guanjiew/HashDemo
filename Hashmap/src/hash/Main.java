@@ -1,7 +1,5 @@
 package hash;
 
-import hash.MyChainHashLinkedListTable.HashElement;
-
 public class Main {
 
 	public static void main(String[] args) {
