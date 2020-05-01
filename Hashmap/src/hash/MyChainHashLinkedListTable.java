@@ -94,17 +94,23 @@ public class MyChainHashLinkedListTable<K extends Comparable<K>, V> implements H
 
 	@SuppressWarnings("unchecked")
 	public MyChainHashLinkedListTable(int tableSize) {
+		if (tableSize <= 0) {
+			throw new NegativeArraySizeException();
+		}
 		this.loadFactor = 0.75;
 		this.tableSize = tableSize;
 		this.hashList = (LinkedList<HashElement<K, V>>[]) new LinkedList[this.tableSize];
 		for (int i = 0; i < this.tableSize; i++) {
 			hashList[i] = new LinkedList<HashElement<K, V>>();
 		}
-
 	}
+	
 
 	@Override
 	public void rehash(int tableSize) {
+		if (tableSize <= 0) {
+			throw new NegativeArraySizeException();
+		}
 		int new_tableSize = tableSize;
 		@SuppressWarnings("unchecked")
 		LinkedList<HashElement<K, V>>[] new_harray = (LinkedList<HashElement<K, V>>[]) new LinkedList[new_tableSize];
